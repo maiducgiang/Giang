@@ -43,11 +43,11 @@ public class ex4 {
 
         System.out.print("nhap so luong giao vien ");int numberTeacher = input.nextInt();
         System.out.println("thong tin giao vien :");
-        String[] codeTeacher = new String[numberTeacher + 1];
-        String[] classTeacher = new String[numberTeacher + 1];
-        String[] nameTeacher = new String[numberTeacher + 1];
-        int[] oldTeacher = new int[ numberTeacher + 1];
-        String[] sTeacher = new String[numberTeacher + 1];
+        String[] codeTeacher = new String[numberTeacher + 100];
+        String[] classTeacher = new String[numberTeacher + 100];
+        String[] nameTeacher = new String[numberTeacher + 100];
+        int[] oldTeacher = new int[ numberTeacher + 100];
+        String[] sTeacher = new String[numberTeacher + 100];
         for(i = 1; i <= numberTeacher; i++){
             input.nextLine();
             System.out.print("nhap ma giao vien "+ i +" "); /* input.nextLine()*/; codeTeacher[i] = input.nextLine();
@@ -86,9 +86,9 @@ public class ex4 {
                     System.out.print("gioi tinh ");input.nextLine(); /*String*/ codeS[code] = input.nextLine();
                     break;
                 case 2:
-                    System.out.print("nhap ma sinh vien can sua") ; String masinhvien = input.nextLine();
+                    System.out.print("nhap ma sinh vien can sua ") ;input.nextLine(); String masinhvien = input.nextLine();
                     for(i = 1; i <= code; i++){
-                        if (masinhvien.compareTo(codeID[code]) == 0){
+                        if (masinhvien.compareTo(codeID[i]) == 0){
                             System.out.print("nhap ho dem "); /*String*/ codeName[i] = input.nextLine();
                             System.out.print("nhap ten "); /*String*/ codeFName[i] = input.nextLine();
                             System.out.print("nhap ma lop "); /*String*/ codeClass[i] = input.nextLine();
@@ -96,13 +96,54 @@ public class ex4 {
                             System.out.print("nhap gioi tinh ");input.nextLine(); /*String*/ codeS[i] = input.nextLine();
                             break;
                         }
-                        if(i == code) System.out.print("khong ton tai ma sinh vien thoa man");
+                        if(i == code) System.out.print("khong ton tai ma sinh vien thoa man ");
                     }
                     break;
                 case 3:
+                    System.out.print("nhap ma giao vien can sua ") ;input.nextLine(); String maGiaoVien = input.nextLine();
+                    for(i = 1; i <= numberTeacher; i++){
+                        if(maGiaoVien.compareTo(codeTeacher[i]) == 0){
+                                System.out.print("nhap ma giao vien "); /* input.nextLine()*/; codeTeacher[i] = input.nextLine();
+                                System.out.print("nhap ma lop giao vien "); classTeacher[i] = input.nextLine();
+                                System.out.print("nhap ten giao vien "); nameTeacher[i] = input.nextLine();
+                                System.out.print("nhap nam sinh giao vien "); oldTeacher[i] = input.nextInt();
+                                System.out.print("nhap gioi tinh giao vien ");/*input.nextLine();*/  sTeacher[i] = input.nextLine(); //input.nextLine();
+                            break;
+                            }
+                        if( i == numberTeacher) System.out.print("khong ton tai mai giao vin thoa man");
+                        }
+                    break;
                 case 4:
+                    System.out.print("nhap ma hoc phan can sua diem ");input.nextLine(); String maHocPhan = input.nextLine();
+                    for(i = 1; i <= codeTerm; i++){
+                        if(maHocPhan.compareTo(codeCourse[i]) == 0){
+                            System.out.print("nhap diem can sua "); point[i] = input.nextInt();
+                        }
+                    }
+                    break;
                 case 5:
+                    System.out.print("nhap ma sinh vien can xoa thong tin ");input.nextLine(); String xoamasinhvien = input.nextLine();
+                    for(i = 1; i <= code; i++){
+                        if(xoamasinhvien.compareTo(codeID[i]) == 0){
+                            codeID[i] = "";
+                            codeName[i] = "";
+                            codeFName[i] = "";
+                            codeClass[i] = "";
+                            codeOld[i] = 0;
+                            codeS[code] = "";
+                        }
+                    }
+                    break;
                 case 6:
+                    System.out.print("nhap ma giao vien can xoa thong tin ");input.nextLine(); String xoamagiaovien = input.nextLine();
+                    for(i = 1; i <= numberTeacher; i++){
+                        if(xoamagiaovien.compareTo(codeTeacher[i]) == 0){
+                            classTeacher[i] = "";
+                            nameTeacher[i] = "";
+                            oldTeacher[i] = 0;
+                            sTeacher[i] = "";
+                        }
+                    }
             }
         }
 
